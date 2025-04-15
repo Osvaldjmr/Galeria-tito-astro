@@ -1,0 +1,84 @@
+---
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+---
+
+<html lang="es">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Contacto</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    </head>
+    <body>
+        <Header />
+
+        <main style="padding: 2rem; max-width: 600px; margin: auto;">
+            <h1>Contacto</h1>
+            <p>
+                ¿Querés consultarme por un cuadro? Escribime por el formulario o
+                por WhatsApp:
+            </p>
+
+            <form name="contacto" method="POST" data-netlify="true">
+                <input type="hidden" name="form-name" value="contacto" />
+
+                <label for="nombre">Nombre:</label><br />
+                <input
+                    type="text"
+                    id="nombre"
+                    name="nombre"
+                    required
+                    style="width: 100%; padding: 0.5rem;"
+                /><br /><br />
+
+                <label for="email">Email:</label><br />
+                <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    required
+                    style="width: 100%; padding: 0.5rem;"
+                /><br /><br />
+
+                <label for="mensaje">Mensaje:</label><br />
+                <textarea
+                    id="mensaje"
+                    name="mensaje"
+                    rows="5"
+                    required
+                    style="width: 100%; padding: 0.5rem;"></textarea><br /><br
+                />
+
+                <button
+                    type="submit"
+                    style="padding: 0.75rem 1.5rem; background: black; color: white; border: none;"
+                >
+                    Enviar
+                </button>
+            </form>
+
+            <hr style="margin: 2rem 0;" />
+
+            <p>También podés escribirme por redes:</p>
+            <ul>
+                <li>
+                    <a href="https://wa.me/549XXXXXXXXXX" target="_blank"
+                        >WhatsApp</a
+                    >
+                </li>
+                <li>
+                    <a href="https://instagram.com/tucuenta" target="_blank"
+                        >Instagram</a
+                    >
+                </li>
+                <li>
+                    <a href="https://facebook.com/tucuenta" target="_blank"
+                        >Facebook</a
+                    >
+                </li>
+            </ul>
+        </main>
+
+        <Footer />
+    </body>
+</html>

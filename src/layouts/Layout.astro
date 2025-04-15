@@ -1,11 +1,50 @@
 <!doctype html>
-<html lang="en">
+<html lang="es">
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
+
+		<!-- SEO -->
+		<title>Tito – Arte Urbano</title>
+		<meta
+			name="description"
+			content="Obras originales e impresiones inspiradas en el arte callejero, graffiti y la ciudad en movimiento. Hecho con pasión, desde el alma urbana."
+		/>
+		<meta
+			name="keywords"
+			content="arte urbano, graffiti, cuadros, galería de arte"
+		/>
+
+		<!-- Open Graph -->
+		<meta property="og:title" content="Tito – Arte Urbano" />
+		<meta
+			property="og:description"
+			content="Explora obras originales inspiradas en el arte callejero y graffiti."
+		/>
+		<meta
+			property="og:image"
+			content="/ruta/a/imagen.jpg"
+		/>
+		<meta
+			property="og:image:alt"
+			content="Imagen destacada de Galería Tito"
+		/>
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content="https://tu-sitio.com" />
+
+		<!-- Twitter -->
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:title" content="Tito – Arte Urbano" />
+		<meta
+			name="twitter:description"
+			content="Explora obras originales inspiradas en el arte callejero y graffiti."
+		/>
+		<meta
+			name="twitter:image"
+			content="/ruta/a/imagen.jpg"
+		/>
 	</head>
 	<body>
 		<slot />

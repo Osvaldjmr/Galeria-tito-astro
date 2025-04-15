@@ -1,0 +1,27 @@
+---
+const { titulo, imagen, precio, descripcion } = Astro.props;
+const whatsappMsg = encodeURIComponent(
+    `Hola! Estoy interesado en el cuadro "${titulo}". ¿Está disponible?`,
+);
+---
+
+<article
+    style="400px; margin: auto; border: 1px solid #ddd; padding: 1rem; border-radius: 8px; text-align: center;"
+>
+    <img
+        src={imagen}
+        alt={titulo}
+        style="max-width: 100%; height: auto; border-radius: 4px;"
+    />
+    <h3>{titulo}</h3>
+    <p>{descripcion}</p>
+    <strong>{precio}</strong>
+    <br />
+    <a
+        href={`https://wa.me/549XXXXXXXXXX?text=${whatsappMsg}`}
+        target="_blank"
+        style="display: inline-block; margin-top: 0.5rem; padding: 0.5rem 1rem; background: black; color: white; text-decoration: none; border-radius: 4px;"
+    >
+        Consultar por WhatsApp
+    </a>
+</article>

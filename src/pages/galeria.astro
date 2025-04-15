@@ -1,0 +1,33 @@
+---
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import GalleryItem from "../components/GalleryItem.astro";
+import { cuadros } from "../data/cuadros.js";
+---
+
+<html lang="es">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Galería</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    </head>
+    <body>
+        <Header />
+
+        <main style="padding: 2rem;">
+            <h1 style="text-align: center;">Mis obras</h1>
+
+            <section
+                style="display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+                gap: 2rem; 
+                margin-top: 2rem;
+                padding: 0 1rem;"
+            >
+                {cuadros.map((cuadro) => <GalleryItem {...cuadro} />)}
+            </section>
+        </main>
+
+        <Footer />
+    </body>
+</html>
