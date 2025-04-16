@@ -1,0 +1,28 @@
+<button
+    id="scrollToTop"
+    class="fixed bottom-8 right-8 bg-black text-white p-3 rounded-full opacity-0 transition-opacity duration-300 hover:bg-gray-800"
+    aria-label="Volver arriba"
+>
+    ↑
+</button>
+
+<script>
+    const scrollToTop = document.getElementById("scrollToTop");
+
+    window.addEventListener("scroll", () => {
+        if (window.scrollY > 200) {
+            scrollToTop?.classList.remove("opacity-0");
+            scrollToTop?.classList.add("opacity-100");
+        } else {
+            scrollToTop?.classList.add("opacity-0");
+            scrollToTop?.classList.remove("opacity-100");
+        }
+    });
+
+    scrollToTop?.addEventListener("click", () => {
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth",
+        });
+    });
+</script>

@@ -1,61 +1,74 @@
+---
+import "../styles/global.css";
+import Footer from "../components/Footer.astro";
+import ThemeToggle from "../components/ThemeToggle.astro";
+
+interface Props {
+	title?: string;
+	description?: string;
+}
+
+const {
+	title = "Tito – Arte Urbano",
+	description = "Obras originales e impresiones inspiradas en el arte callejero, graffiti y la ciudad en movimiento.",
+} = Astro.props;
+---
+
 <!doctype html>
-<html lang="es">
+<html lang="es" class="scroll-smooth">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
 
-		<!-- SEO -->
-		<title>Tito – Arte Urbano</title>
-		<meta
-			name="description"
-			content="Obras originales e impresiones inspiradas en el arte callejero, graffiti y la ciudad en movimiento. Hecho con pasión, desde el alma urbana."
-		/>
+		<!-- Theme Script - Must be before ClientReload -->
+		<script is:inline>
+			if (
+				typeof localStorage !== "undefined" &&
+				localStorage.getItem("theme")
+			) {
+				document.documentElement.classList.add(
+					localStorage.getItem("theme"),
+				);
+			} else if (
+				window.matchMedia("(prefers-color-scheme: dark)").matches
+			) {
+				document.documentElement.classList.add("dark");
+			}
+		</script>
+
+		<title transition:name="title">{title}</title>
+		<meta name="description" content={description} />
 		<meta
 			name="keywords"
 			content="arte urbano, graffiti, cuadros, galería de arte"
 		/>
 
-		<!-- Open Graph -->
-		<meta property="og:title" content="Tito – Arte Urbano" />
-		<meta
-			property="og:description"
-			content="Explora obras originales inspiradas en el arte callejero y graffiti."
-		/>
-		<meta
-			property="og:image"
-			content="/ruta/a/imagen.jpg"
-		/>
-		<meta
-			property="og:image:alt"
-			content="Imagen destacada de Galería Tito"
-		/>
+		<!-- SEO -->
+		<link rel="canonical" href={Astro.url} />
+
+		<!-- Open Graph / Facebook -->
 		<meta property="og:type" content="website" />
-		<meta property="og:url" content="https://tu-sitio.com" />
+		<meta property="og:url" content={Astro.url} />
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description} />
+		<meta property="og:image" content="/og-image.jpg" />
 
 		<!-- Twitter -->
-		<meta name="twitter:card" content="summary_large_image" />
-		<meta name="twitter:title" content="Tito – Arte Urbano" />
-		<meta
-			name="twitter:description"
-			content="Explora obras originales inspiradas en el arte callejero y graffiti."
-		/>
-		<meta
-			name="twitter:image"
-			content="/ruta/a/imagen.jpg"
-		/>
+		<meta property="twitter:card" content="summary_large_image" />
+		<meta property="twitter:url" content={Astro.url} />
+		<meta property="twitter:title" content={title} />
+		<meta property="twitter:description" content={description} />
+		<meta property="twitter:image" content="/og-image.jpg" />
 	</head>
-	<body>
-		<slot />
+	<body
+		class="min-h-screen flex flex-col bg-background-light dark:bg-background-dark text-text-light dark:text-text-dark transition-colors duration-300"
+	>
+		<ThemeToggle />
+		<main class="flex-grow">
+			<slot />
+		</main>
+		<Footer />
 	</body>
 </html>
-
-<style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	}
-</style>

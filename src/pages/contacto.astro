@@ -1,84 +1,101 @@
 ---
+import Layout from "../layouts/Layout.astro";
 import Header from "../components/Header.astro";
-import Footer from "../components/Footer.astro";
 ---
 
-<html lang="es">
-    <head>
-        <meta charset="UTF-8" />
-        <title>Contacto</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    </head>
-    <body>
-        <Header />
+<Layout title="Contacto - Tito Arte">
+    <Header />
+    <main class="max-w-2xl mx-auto px-4 py-8 animate-fade-in">
+        <h1 class="text-4xl font-bold mb-6">Contacto</h1>
+        <p class="text-lg mb-8">
+            ¿Querés consultarme por un cuadro? Escribime por el formulario o por
+            WhatsApp:
+        </p>
 
-        <main style="padding: 2rem; max-width: 600px; margin: auto;">
-            <h1>Contacto</h1>
-            <p>
-                ¿Querés consultarme por un cuadro? Escribime por el formulario o
-                por WhatsApp:
-            </p>
+        <form
+            name="contacto"
+            method="POST"
+            data-netlify="true"
+            class="space-y-6"
+        >
+            <input type="hidden" name="form-name" value="contacto" />
 
-            <form name="contacto" method="POST" data-netlify="true">
-                <input type="hidden" name="form-name" value="contacto" />
-
-                <label for="nombre">Nombre:</label><br />
+            <div class="space-y-2">
+                <label for="nombre" class="block text-sm font-medium"
+                    >Nombre:</label
+                >
                 <input
                     type="text"
                     id="nombre"
                     name="nombre"
                     required
-                    style="width: 100%; padding: 0.5rem;"
-                /><br /><br />
+                    class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-black focus:border-transparent transition-all"
+                />
+            </div>
 
-                <label for="email">Email:</label><br />
+            <div class="space-y-2">
+                <label for="email" class="block text-sm font-medium"
+                    >Email:</label
+                >
                 <input
                     type="email"
                     id="email"
                     name="email"
                     required
-                    style="width: 100%; padding: 0.5rem;"
-                /><br /><br />
+                    class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-black focus:border-transparent transition-all"
+                />
+            </div>
 
-                <label for="mensaje">Mensaje:</label><br />
+            <div class="space-y-2">
+                <label for="mensaje" class="block text-sm font-medium"
+                    >Mensaje:</label
+                >
                 <textarea
                     id="mensaje"
                     name="mensaje"
                     rows="5"
                     required
-                    style="width: 100%; padding: 0.5rem;"></textarea><br /><br
-                />
+                    class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-black focus:border-transparent transition-all"
+                ></textarea>
+            </div>
 
-                <button
-                    type="submit"
-                    style="padding: 0.75rem 1.5rem; background: black; color: white; border: none;"
+            <button
+                type="submit"
+                class="w-full md:w-auto px-8 py-3 bg-black text-white rounded-lg hover:bg-gray-800 transform hover:scale-105 transition-all duration-300"
+            >
+                Enviar
+            </button>
+        </form>
+
+        <hr class="my-12 border-gray-200" />
+
+        <div class="space-y-6">
+            <h2 class="text-2xl font-semibold">
+                También podés escribirme por redes:
+            </h2>
+            <div class="flex space-x-6">
+                <a
+                    href="https://wa.me/549XXXXXXXXXX"
+                    target="_blank"
+                    class="flex items-center space-x-2 text-green-600 hover:text-green-700 transition-colors"
                 >
-                    Enviar
-                </button>
-            </form>
-
-            <hr style="margin: 2rem 0;" />
-
-            <p>También podés escribirme por redes:</p>
-            <ul>
-                <li>
-                    <a href="https://wa.me/549XXXXXXXXXX" target="_blank"
-                        >WhatsApp</a
-                    >
-                </li>
-                <li>
-                    <a href="https://instagram.com/tucuenta" target="_blank"
-                        >Instagram</a
-                    >
-                </li>
-                <li>
-                    <a href="https://facebook.com/tucuenta" target="_blank"
-                        >Facebook</a
-                    >
-                </li>
-            </ul>
-        </main>
-
-        <Footer />
-    </body>
-</html>
+                    <span>WhatsApp</span>
+                </a>
+                <a
+                    href="https://instagram.com/tucuenta"
+                    target="_blank"
+                    class="flex items-center space-x-2 text-pink-600 hover:text-pink-700 transition-colors"
+                >
+                    <span>Instagram</span>
+                </a>
+                <a
+                    href="https://facebook.com/tucuenta"
+                    target="_blank"
+                    class="flex items-center space-x-2 text-blue-600 hover:text-blue-700 transition-colors"
+                >
+                    <span>Facebook</span>
+                </a>
+            </div>
+        </div>
+    </main>
+</Layout>

@@ -1,0 +1,27 @@
+---
+import { getImage } from "astro:assets";
+
+interface Props {
+    src: ImageMetadata;
+    alt: string;
+    width: number;
+    height: number;
+    class?: string;
+}
+
+const { src, alt, width, height, class: className } = Astro.props;
+
+const optimizedImage = await getImage({
+    src: src,
+    width: width,
+    height: height,
+});
+---
+
+<img
+    src={optimizedImage.src}
+    width={width}
+    height={height}
+    alt={alt}
+    class={className}
+/>

@@ -4,12 +4,12 @@ interface Props {
     label: string;
 }
 
-const { href = "#", label } = Astro.props;
+const { href, label } = Astro.props;
 ---
 
 <a
     href={href}
-    class="inline-block px-8 py-4 bg-black text-white no-underline rounded"
+    class="inline-block px-8 py-4 bg-black text-white rounded-lg transform transition-all duration-300 hover:scale-105 hover:shadow-lg hover:bg-gray-800"
     aria-label={label}
 >
     {label}

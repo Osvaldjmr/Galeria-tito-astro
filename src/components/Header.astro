@@ -1,12 +1,33 @@
-<header
-    class="bg-black text-white py-4"
->
-    <h2>Mi Arte Urbano</h2>
-    <nav
-        style="margin-top: 0.5rem; display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem;"
-    >
-        <a href="/" style="margin: 0 1rem; color: white;">Inicio</a>
-        <a href="/galeria" style="margin: 0 1rem; color: white;">Galería</a>
-        <a href="/contacto" style="margin: 0 1rem; color: white;">Contacto</a>
+---
+const currentPath = Astro.url.pathname;
+---
+
+<header class="bg-background-light dark:bg-background-dark text-text-light dark:text-text-dark py-6 transition-colors duration-300">
+    <nav class="container mx-auto px-4">
+        <div class="flex justify-between items-center">
+            <a href="/" class="text-2xl font-bold text-primary-DEFAULT dark:text-primary-light hover:text-primary-dark dark:hover:text-primary-DEFAULT transition-colors">
+                Tito Arte
+            </a>
+            <div class="flex space-x-6">
+                <a 
+                    href="/" 
+                    class={`hover:text-primary-DEFAULT dark:hover:text-primary-light transition-colors ${currentPath === '/' ? 'text-accent-DEFAULT dark:text-accent-light' : ''}`}
+                >
+                    Inicio
+                </a>
+                <a 
+                    href="/galeria" 
+                    class={`hover:text-primary-DEFAULT dark:hover:text-primary-light transition-colors ${currentPath === '/galeria' ? 'text-accent-DEFAULT dark:text-accent-light' : ''}`}
+                >
+                    Galería
+                </a>
+                <a 
+                    href="/contacto" 
+                    class={`hover:text-primary-DEFAULT dark:hover:text-primary-light transition-colors ${currentPath === '/contacto' ? 'text-accent-DEFAULT dark:text-accent-light' : ''}`}
+                >
+                    Contacto
+                </a>
+            </div>
+        </div>
     </nav>
 </header>

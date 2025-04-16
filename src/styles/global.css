@@ -1,0 +1,50 @@
+@import "tailwindcss";
+
+/* Custom styles beyond Tailwind */
+:root {
+    scroll-behavior: smooth;
+}
+
+body {
+    @apply antialiased;
+}
+
+/* Improved focus outline for better accessibility */
+:focus-visible {
+    @apply outline-2 outline-offset-2 outline-black dark:outline-white;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+    @apply w-2;
+}
+
+::-webkit-scrollbar-track {
+    @apply bg-gray-100 dark:bg-gray-800;
+}
+
+::-webkit-scrollbar-thumb {
+    @apply bg-gray-300 dark:bg-gray-600 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    @apply bg-gray-400 dark:bg-gray-500;
+}
+
+/* Image loading animation */
+img {
+    @apply transition-opacity duration-300;
+}
+
+img.loading {
+    @apply opacity-0;
+}
+
+/* Smooth transitions for dark mode */
+.dark {
+    color-scheme: dark;
+}
+
+html.dark {
+    @apply transition-colors duration-300;
+}
